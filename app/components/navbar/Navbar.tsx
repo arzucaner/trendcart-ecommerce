@@ -1,6 +1,6 @@
 import CardCount from "./CardCount";
 import Logo from "./Logo";
-import NavTrend from "./NavTrend";
+import HamburgerMenu from "./HamburgerMenu";
 import Search from "./Search";
 import User from "./User";
 
@@ -11,7 +11,7 @@ const Navbar = () => {
             <Search />
             <CardCount />
             <User />
-            <NavTrend />
+            <HamburgerMenu/>
         </div>
     )
 }
