@@ -8,10 +8,10 @@ const Navbar = () => {
     return (
         <div className="flex items-center justify-between gap-3 md:gap-10 px-3 md:px:10 h-16 bg-blue-600 text-slate-100">
             <Logo />
-            <NavTrend />
             <Search />
-            <User />
             <CardCount />
+            <User />
+            <NavTrend />
         </div>
     )
 }
