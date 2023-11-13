@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Banner = () => {
     return (
-        <div className="h-[237px]">
-            <div className="h-[137px] relative">
+        <div className="h-[237px] bg-black flex items-center justify-center">
+            <div className="h-[137px] relative w-full">
                 <Image src={"/trendcart.png"} fill alt=""/>
             </div>
         </div>
