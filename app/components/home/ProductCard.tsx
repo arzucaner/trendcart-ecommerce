@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Rating } from "@mui/material";
 
 const ProductCard = ({ product }: { product: any }) => {
     return (
@@ -9,8 +10,9 @@ const ProductCard = ({ product }: { product: any }) => {
             </div>
             <div className="text-center mt-2">
                 <div>{product.name}</div>
+                <Rating name="read-only" value={4} readOnly />
+                <div className="text-orange text-lg md:text-xl">{product.price} £</div>
             </div>
-
         </div>
     )
 }
