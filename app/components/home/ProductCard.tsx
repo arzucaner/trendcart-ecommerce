@@ -3,15 +3,15 @@ import { Rating } from "@mui/material";
 
 const ProductCard = ({ product }: { product: any }) => {
     return (
-        <div className="w-[240px] shadow-lg p-2 rounded-md">
+        <div className="w-[240px] cursor-pointer flex flex-col flex-1 shadow-lg p-2 rounded-md">
             <div className="relative h-[150px]">
                 <Image src={product.image} fill alt="" className="object-contain" />
 
             </div>
-            <div className="text-center mt-2">
+            <div className="text-center mt-2 space-y-1">
                 <div>{product.name}</div>
                 <Rating name="read-only" value={4} readOnly />
-                <div className="text-orange text-lg md:text-xl">{product.price} £</div>
+                <div className="text-orange-600 font-bold text-lg md:text-xl">{product.price} £</div>
             </div>
         </div>
     )
