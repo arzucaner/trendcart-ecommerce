@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Rating } from "@mui/material";
+import textClip from "@/utils/TextClip";
 
 const ProductCard = ({ product }: { product: any }) => {
     return (
@@ -9,7 +10,7 @@ const ProductCard = ({ product }: { product: any }) => {
 
             </div>
             <div className="text-center mt-2 space-y-1">
-                <div>{product.name}</div>
+                <div>{textClip(product.name)}</div>
                 <Rating name="read-only" value={4} readOnly />
                 <div className="text-orange-600 font-bold text-lg md:text-xl">{product.price} £</div>
             </div>
