@@ -1,4 +1,3 @@
-
 # TRENDCART🛒 E-COMMERCE
 
 This project entails the creation of a sophisticated e-commerce website, meticulously crafted using cutting-edge technologies. Leveraging the power of Next.js for a seamless and efficient front-end, TypeScript for enhanced code quality and maintainability, Prisma for streamlined database access, MongoDB as the robust backend database, and Tailwind CSS for a sleek and responsive user interface.
@@ -10,6 +9,16 @@ The integration of Prisma facilitates smooth and secure communication with the d
 The user interface is designed with precision and responsiveness in mind, thanks to Tailwind CSS. This utility-first CSS framework allows for rapid development and ensures a visually appealing and user-friendly design.
 
 In summary, this e-commerce project is a harmonious blend of Next.js, TypeScript, Prisma, MongoDB, and Tailwind CSS, promising a robust, efficient, and visually appealing online shopping experience.
+
+## Table of Contents
+
+* Description
+* Demo
+* Features
+* Installation
+* Usage
+* Contributing
+* License
 
 ## Getting Started
 
