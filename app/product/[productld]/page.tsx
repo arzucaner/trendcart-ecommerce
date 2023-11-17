@@ -12,11 +12,9 @@ const Detail = ({ params }: { params: DetailProps }) => {
 
     const product = products.find(product => product.id == productId)
 
-    console.log(product, "product")
-
     return (
         <div>
-            <DetailClient />
+            <DetailClient product={product} />
         </div>
     )
 }
