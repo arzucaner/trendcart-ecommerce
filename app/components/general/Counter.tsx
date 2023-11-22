@@ -3,7 +3,7 @@ interface CounterProps {
     incraseFunc: () => void;
     decraseFunc: () => void;
 }
-const Counter:React.FC<CounterProps> = ({productCard, incraseFunc, decraseFunc }) => {
+const Counter:React.FC<CounterProps> = ({cardProduct, incraseFunc, decraseFunc }) => {
   return (
     <div>
       <div>-</div>
