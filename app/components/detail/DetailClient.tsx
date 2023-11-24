@@ -5,6 +5,7 @@ import Image from "next/image";
 import Counter from "../general/Counter";
 import { useState } from "react";
 import { Rating } from "@mui/material";
+import Button from "../general/Button";
 
 export type CardProductProps = {
     id: string
@@ -43,10 +44,10 @@ const DetailClient = ({ product }: { product: any }) => {
         <div className="my-10">
             <PageContainer>
                 <div className="block md:flex gap-10 justify-center">
-                    <div className="relative h-[400px] w-[400px]">
+                    <div className="relative h-[200px] md:h-[400px] w-[200px] md:w-[400px] mb-3 md:mb-0">
                         <Image src={product?.image} fill alt="" />
                     </div>
-                    <div className="w-1/2 space-y-3">
+                    <div className="w-full w-1/2 space-y-3">
                         <div className="text-xl md:text-2xl">{product?.name}</div>
                         <Rating name="read-only" value={productRating} readOnly />
                         <div className="text-slate-500">{product?.description}</div>
@@ -56,8 +57,9 @@ const DetailClient = ({ product }: { product: any }) => {
                                 product.inStock ? <div className="text-green-500">Product is in stock</div> : <div className="text-red-500">Product is out of stock</div>
                             }
                         </div>
-                        <Counter increaseFunch={increaseFunch} decreaseFunch={decreaseFunch} cardProduct={cardProduct} />
+                        <Counter increaseFunc={increaseFunc} decreaseFunc={decreaseFunc} cardProduct={cardProduct} />
                         <div className="text-lg md:text-2xl text-orange-600 font-bold">{product.price} £</div>
+                        <Button text="Add to Basket" small onclick={() => { }} />
                     </div>
                 </div>
             </PageContainer>
