@@ -6,6 +6,7 @@ import Counter from "../general/Counter";
 import { useState } from "react";
 import { Rating } from "@mui/material";
 import Button from "../general/Button";
+import Comment from "../detail/Comment"
 
 export type CardProductProps = {
     id: string
@@ -17,11 +18,11 @@ export type CardProductProps = {
     inStock: boolean
 }
 
-const DetailClient = ({ product }: { product: any }) => {
+const DetailClient = ({ product }: { product: any}) => {
 
     const [cardProduct, setCardProduct] = useState<CardProductProps>({
         id: product.id,
-        name: product.string,
+        name: product.name,
         description: product.description,
         price: product.price,
         quantity: 1,
@@ -31,11 +32,11 @@ const DetailClient = ({ product }: { product: any }) => {
 
     const increaseFunc = () => {
         if (cardProduct.quantity == 10) return
-        setCardProduct(prev => ({ ...prev, quantity: prev.quantity + 1 }))
+        setCardProduct(prev => ({...prev, quantity: prev.quantity + 1 }))
     }
     const descreaseFunc = () => {
         if (cardProduct.quantity == 1) return
-        setCardProduct(prev => ({ ...prev, quantity: prev.quantity - 1 }))
+        setCardProduct(prev => ({...prev, quantity: prev.quantity - 1 }))
     }
 
     let productRating = product?.reviews?.reduce((acc: number, item: any) => acc + item.rating, 0) / product?.reviews?.length
@@ -59,8 +60,15 @@ const DetailClient = ({ product }: { product: any }) => {
                         </div>
                         <Counter increaseFunc={increaseFunc} decreaseFunc={decreaseFunc} cardProduct={cardProduct} />
                         <div className="text-lg md:text-2xl text-orange-600 font-bold">{product.price} £</div>
-                        <Button text="Add to Basket" small onclick={() => { }} />
+                        <Button text="Add to Basket" small onClick={() => {}} />
                     </div>
+                </div>
+                <div>
+                    {
+                        product?.reviews?.map(prd => (
+                            <Comment key={prd.id} prd={prd}/>
+                        ))
+                    }
                 </div>
             </PageContainer>
         </div>
