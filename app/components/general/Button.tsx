@@ -4,14 +4,15 @@ interface ButtonProps {
     text: string
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     small?: boolean
-    icon: IconType
+    //icon?: IconType
     disabled?: boolean
 }
-const Button: React.FC<ButtonProps> = ({ text, onClick, small, outline, disabled, icon: Icon }) => {
+const Button: React.FC<ButtonProps> = ({ text, onClick, small, outline, disabled }) => {
     return (
-        <div>
-            <button onClick={() => { }}>Button</button>
-        </div>
+        <button className={`rounded-lg ${outline ? "border text-black" : "bg-black text-white"}`} onClick={onClick}>
+            {text}
+        </button>
+
     )
 }
 

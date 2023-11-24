@@ -56,7 +56,7 @@ const DetailClient = ({ product }: { product: any }) => {
                                 product.inStock ? <div className="text-green-500">Product is in stock</div> : <div className="text-red-500">Product is out of stock</div>
                             }
                         </div>
-                        <Counter increaseFunch={increaseFunc} decreaseFunc={decreaseFunc} cardProduct={cardProduct} />
+                        <Counter increaseFunch={increaseFunch} decreaseFunch={decreaseFunch} cardProduct={cardProduct} />
                         <div className="text-lg md:text-2xl text-orange-600 font-bold">{product.price} £</div>
                     </div>
                 </div>
