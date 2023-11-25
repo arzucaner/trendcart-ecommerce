@@ -3,7 +3,7 @@
 import PageContainer from "../containers/PageContainer";
 import Image from "next/image";
 import Counter from "../general/Counter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Rating } from "@mui/material";
 import Button from "../general/Button";
 import Comment from "../detail/Comment"
@@ -23,6 +23,7 @@ export type CardProductProps = {
 const DetailClient = ({ product }: { product: any }) => {
 
     const { productCartQty, addToBasket, cartPrdcts } = UseCart();
+    const [displayButton, setDisplayButton] = useState(false)
 
     const [cardProduct, setCardProduct] = useState<CardProductProps>({
         id: product.id,
@@ -35,6 +36,15 @@ const DetailClient = ({ product }: { product: any }) => {
     })
 
     console.log(cartPrdcts, "cartPrdcts")
+
+    useEffect(() => {
+        setDisplayButton(false)
+        let controlDisplay: any = cartPrdcts?.findIndex(cart => cart.id == product.id)
+        if (controlDisplay > -1) {
+            setDisplayButton(true)
+        }
+
+    }, [])
 
     const increaseFunc = () => {
         if (cardProduct.quantity == 10) return
