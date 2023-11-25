@@ -4,6 +4,7 @@ import { createContext, useState, useContext, useCallback } from "react";
 
 interface CartContextProps {
     productCartQty: number
+    cartPrdcts: CardProductProps[] | null
     addToBasket: (product: CardProductProps) => void
 }
 const CartContext = createContext<CartContextProps | null>(null)

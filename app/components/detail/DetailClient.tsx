@@ -22,7 +22,7 @@ export type CardProductProps = {
 
 const DetailClient = ({ product }: { product: any }) => {
 
-    const { productCartQty, addToBasket } = UseCart();
+    const { productCartQty, addToBasket, cartPrdcts } = UseCart();
 
     const [cardProduct, setCardProduct] = useState<CardProductProps>({
         id: product.id,
@@ -34,7 +34,7 @@ const DetailClient = ({ product }: { product: any }) => {
         inStock: product.inStock,
     })
 
-    console.log(productCartQty, "productCartQty")
+    console.log(cartPrdcts, "cartPrdcts")
 
     const increaseFunc = () => {
         if (cardProduct.quantity == 10) return
