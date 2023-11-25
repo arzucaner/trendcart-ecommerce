@@ -1,8 +1,11 @@
 "use client"
-import { createContext, useState, useContext } from "react";
+import { CardProductProps } from "@/app/components/detail/DetailClient";
+import { createContext, useState, useContext, useCallback } from "react";
 
 interface CartContextProps {
     productCartQty: number
+    addToBasket: (product: CardProductProps) => void
+
 
 }
 const CartContext = createContext<CartContextProps | null>(null)
@@ -15,8 +18,13 @@ interface Props {
 export const CartContextProvider = (props: Props) => {
     const [productCartQty, setProductCartQty] = useState(0)
 
+    const addToBasket = useCallback(() => {
+
+    }, [])
+
     let value = {
-        productCartQty
+        productCartQty,
+        addToBasket
 
     }
     return (
