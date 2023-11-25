@@ -22,7 +22,7 @@ export type CardProductProps = {
 
 const DetailClient = ({ product }: { product: any }) => {
 
-    const {productCartQty} = UseCart();
+    const { productCartQty, addToBasket } = UseCart();
 
     const [cardProduct, setCardProduct] = useState<CardProductProps>({
         id: product.id,
@@ -66,7 +66,7 @@ const DetailClient = ({ product }: { product: any }) => {
                         </div>
                         <Counter increaseFunc={increaseFunc} decreaseFunc={decreaseFunc} cardProduct={cardProduct} />
                         <div className="text-lg md:text-2xl text-orange-600 font-bold">{product.price} £</div>
-                        <Button text="Add to Basket" small onClick={() => { }} />
+                        <Button text="Add to Basket" small onClick={() => addToBasket(cardProduct)} />
                     </div>
                 </div>
                 <Heading text="Reviews" />
