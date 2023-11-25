@@ -35,7 +35,6 @@ const DetailClient = ({ product }: { product: any }) => {
         inStock: product.inStock,
     })
 
-    console.log(cartPrdcts, "cartPrdcts")
 
     useEffect(() => {
         setDisplayButton(false)
@@ -44,7 +43,7 @@ const DetailClient = ({ product }: { product: any }) => {
             setDisplayButton(true)
         }
 
-    }, [])
+    }, [cartPrdcts])
 
     const increaseFunc = () => {
         if (cardProduct.quantity == 10) return
@@ -74,9 +73,17 @@ const DetailClient = ({ product }: { product: any }) => {
                                 product.inStock ? <div className="text-green-500">Product is in stock</div> : <div className="text-red-500">Product is out of stock</div>
                             }
                         </div>
-                        <Counter increaseFunc={increaseFunc} decreaseFunc={decreaseFunc} cardProduct={cardProduct} />
                         <div className="text-lg md:text-2xl text-orange-600 font-bold">{product.price} £</div>
-                        <Button text="Add to Basket" small onClick={() => addToBasket(cardProduct)} />
+                        {
+                            displayButton ? <>
+                                <Button text="Add the Product to the Basket" small outline onClick={() => { }} />
+
+                            </> : <>
+                                <Counter increaseFunc={increaseFunc} decreaseFunc={decreaseFunc} cardProduct={cardProduct} />
+                                <Button text="Add to Basket" small onClick={() => addToBasket(cardProduct)} />
+                            </>
+                        }
+
                     </div>
                 </div>
                 <Heading text="Reviews" />
