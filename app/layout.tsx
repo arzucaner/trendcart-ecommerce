@@ -20,6 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+        />
         <CartProvider>
           <div className='flex flex-col min-h-screen'>
             <Navbar />
