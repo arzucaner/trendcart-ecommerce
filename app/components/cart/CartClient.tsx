@@ -6,7 +6,7 @@ import Image from "next/image";
 
 
 const CartClient = () => {
-    const { cartPrdcts } = UseCart()
+    const { cartPrdcts, removeFromCart } = UseCart()
 
     console.log(cartPrdcts, "cartPrdcts")
     if (!cartPrdcts || cartPrdcts.length === 0) {
@@ -20,7 +20,7 @@ const CartClient = () => {
                     <div className="w-1/5">Product Name</div>
                     <div className="w-1/5">Product Quantity</div>
                     <div className="w-1/5">Product Price</div>
-                    <div className="w-1/5"></div>               
+                    <div className="w-1/5"></div>
                 </div>
                 <div>
                     {
@@ -32,12 +32,16 @@ const CartClient = () => {
                                 <div className="w-1/5">{cart.name}</div>
                                 <div className="w-1/5">2</div>
                                 <div className="w-1/5 text-orange-600 text-lg">{cart.price} £</div>
-                                 <div className="w-1/5">
-                                    <Button text="Remove Product" small onClick={() => {}}/>
-                                    </div>
+                                <div className="w-1/5">
+                                    <Button text="Remove Product" small onClick={() => removeFromCart(cart)} />
+                                </div>
                             </div>
                         ))
                     }
+                </div>
+                <div className="flex items-center justify-between my-5 py-5 border-t">
+                    <button className="w-1/5 underline text-sm">Removed from Basket</button>
+                    <div className="text-lg md:text-2xl text-orange-600 font-bold">1000 £</div>
                 </div>
             </PageContainer>
         </div>

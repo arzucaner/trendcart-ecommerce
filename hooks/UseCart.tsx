@@ -28,6 +28,10 @@ export const CartContextProvider = (props: Props) => {
         setCartPrdcts(getItemParse)
     }, [])
 
+    const removeCart = useCallback(() => {
+
+    }, [])
+
     const addToBasket = useCallback((product: CardProductProps) => {
         setCartPrdcts(prev => {
             let updatedCart;
@@ -44,8 +48,15 @@ export const CartContextProvider = (props: Props) => {
     }, [cartPrdcts])
 
     const removeFromCart = useCallback((product: CardProductProps) => {
+        if (cartPrdcts) {
+            const filteredProducts = cartPrdcts.filter(cart => cart.id !== product.id)
 
-    }, [])
+            setCartPrdcts(filteredProducts)
+            toast.success('Product removed to the basket!')
+            localStorage.setItem('cart', JSON.stringify(filteredProducts))
+        }
+
+    }, [cartPrdcts])
 
     let value = {
         productCartQty,
