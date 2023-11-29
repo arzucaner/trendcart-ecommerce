@@ -4,6 +4,8 @@ import './globals.css'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
 import CartProvider from '@/provider/CartProvider'
+import { Toaster } from 'react-hot-toast'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Toaster
-          position="top-right"
+         position="top-right"
           reverseOrder={false}
         />
         <CartProvider>
