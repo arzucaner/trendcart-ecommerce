@@ -10,6 +10,7 @@ interface CartContextProps {
     cartPrdcts: CardProductProps[] | null
     addToBasket: (product: CardProductProps) => void
     removeFromCart: (product: CardProductProps) => void
+    removeCart: () => void
 }
 const CartContext = createContext<CartContextProps | null>(null)
 
@@ -29,7 +30,9 @@ export const CartContextProvider = (props: Props) => {
     }, [])
 
     const removeCart = useCallback(() => {
-
+        setCartPrdcts(null)
+        toast.success('Cart Cleared!')
+            localStorage.setItem('cart', JSON.stringify(null))
     }, [])
 
     const addToBasket = useCallback((product: CardProductProps) => {
@@ -62,7 +65,8 @@ export const CartContextProvider = (props: Props) => {
         productCartQty,
         addToBasket,
         cartPrdcts,
-        removeFromCart
+        removeFromCart,
+        removeCart
     }
     return (
         <CartContext.Provider value={value} {...props} />

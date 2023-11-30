@@ -6,7 +6,7 @@ import Image from "next/image";
 
 
 const CartClient = () => {
-    const { cartPrdcts, removeFromCart } = UseCart()
+    const { cartPrdcts, removeFromCart, removeCart } = UseCart()
 
     console.log(cartPrdcts, "cartPrdcts")
     if (!cartPrdcts || cartPrdcts.length === 0) {
@@ -40,7 +40,7 @@ const CartClient = () => {
                     }
                 </div>
                 <div className="flex items-center justify-between my-5 py-5 border-t">
-                    <button className="w-1/5 underline text-sm">Removed from Basket</button>
+                    <button onClick={() => removeCart}className="w-1/5 underline text-sm">Removed from Basket</button>
                     <div className="text-lg md:text-2xl text-orange-600 font-bold">1000 £</div>
                 </div>
             </PageContainer>
