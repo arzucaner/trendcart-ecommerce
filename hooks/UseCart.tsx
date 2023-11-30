@@ -29,10 +29,27 @@ export const CartContextProvider = (props: Props) => {
         setCartPrdcts(getItemParse)
     }, [])
 
+    const addToBasketIncrease = useCallback((product: CardProductProps) => {
+        let updatedCart;
+        if (product.quantity == 10) {
+            return toast.error('Cannot add more...')
+        }
+        if (cartPrdcts) {
+            updatedCart = [...cartPrdcts];
+            const existingItem = cartPrdcts.findIndex(item => item.id === product.id)
+
+            if (existingItem > -1) {
+                updatedCart[existingItem].quantity = ++updatedCart[existingItem].quantity
+            }
+            setCartPrdcts(updatedCart)
+            localStorage.setItem('cart', JSON.stringify(updatedCart))
+        }
+    }, [cartPrdcts])
+
     const removeCart = useCallback(() => {
         setCartPrdcts(null)
         toast.success('Cart Cleared!')
-            localStorage.setItem('cart', JSON.stringify(null))
+        localStorage.setItem('cart', JSON.stringify(null))
     }, [])
 
     const addToBasket = useCallback((product: CardProductProps) => {
