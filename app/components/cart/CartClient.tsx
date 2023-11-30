@@ -3,6 +3,9 @@
 import UseCart from "@/hooks/UseCart";
 import PageContainer from "../containers/PageContainer";
 import Image from "next/image";
+import Button from "../general/Button";
+import { CardProductProps } from "../detail/DetailClient";
+import Counter from "../general/Counter";
 
 
 const CartClient = () => {
@@ -12,6 +15,8 @@ const CartClient = () => {
     if (!cartPrdcts || cartPrdcts.length === 0) {
         return <div>Your basket is empty...</div>
     }
+
+    let cartPrdctsTotal = cartPrdcts.reduce((acc: any, item: CardProductProps) => acc + item.quantity * item.price)
     return (
         <div className="my-3 md:my-10">
             <PageContainer>
@@ -30,7 +35,9 @@ const CartClient = () => {
                                     <Image src={cart.image} width={40} height={40} alt="" />
                                 </div>
                                 <div className="w-1/5">{cart.name}</div>
-                                <div className="w-1/5">2</div>
+                                <div className="w-1/5">
+                                    <Counter cardProduct={cart}/> increaseFunc={() => {}} decreaseFunc={() => {}}/>
+                                    </div>
                                 <div className="w-1/5 text-orange-600 text-lg">{cart.price} £</div>
                                 <div className="w-1/5">
                                     <Button text="Remove Product" small onClick={() => removeFromCart(cart)} />
@@ -40,8 +47,8 @@ const CartClient = () => {
                     }
                 </div>
                 <div className="flex items-center justify-between my-5 py-5 border-t">
-                    <button onClick={() => removeCart}className="w-1/5 underline text-sm">Removed from Basket</button>
-                    <div className="text-lg md:text-2xl text-orange-600 font-bold">1000 £</div>
+                    <button onClick={() => removeCart} className="w-1/5 underline text-sm">Removed from Basket</button>
+                    <div className="text-lg md:text-2xl text-orange-600 font-bold">{cartPrdctsTotal} £</div>
                 </div>
             </PageContainer>
         </div>
