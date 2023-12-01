@@ -9,7 +9,7 @@ import Counter from "../general/Counter";
 
 
 const CartClient = () => {
-    const { cartPrdcts, removeFromCart, removeCart, addToBasketIncrease } = UseCart()
+    const { cartPrdcts, removeFromCart, removeCart, addToBasketIncrease, addToBasketDecrease } = UseCart()
 
     console.log(cartPrdcts, "cartPrdcts")
     if (!cartPrdcts || cartPrdcts.length === 0) {
@@ -36,7 +36,7 @@ const CartClient = () => {
                                 </div>
                                 <div className="w-1/5">{cart.name}</div>
                                 <div className="w-1/5">
-                                    <Counter cardProduct={cart} /> increaseFunc={() => { addToBasketIncrease }(cart)} decreaseFunc={() => { }}/>
+                                    <Counter cardProduct={cart} /> increaseFunc={() => { addToBasketIncrease }(cart)} decreaseFunc={() => addToBasketDecrease(cart)}/>
                                 </div>
                                 <div className="w-1/5 text-orange-600 text-lg">{cart.price} £</div>
                                 <div className="w-1/5">
