@@ -1,9 +1,12 @@
+import AuthContainer from "../containers/AuthContainer"
 
 const LoginClient = () => {
   return (
-    <div>
-      
-    </div>
+    <AuthContainer>
+        Login
+    
+    </AuthContainer>
+   
   )
 }
 
