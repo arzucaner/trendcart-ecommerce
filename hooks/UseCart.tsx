@@ -9,6 +9,7 @@ interface CartContextProps {
     productCartQty: number
     cartPrdcts: CardProductProps[] | null
     addToBasket: (product: CardProductProps) => void
+    addToBasketIncrease: (product: CardProductProps) => void
     removeFromCart: (product: CardProductProps) => void
     removeCart: () => void
 }
@@ -83,7 +84,8 @@ export const CartContextProvider = (props: Props) => {
         addToBasket,
         cartPrdcts,
         removeFromCart,
-        removeCart
+        removeCart,
+        addToBasketIncrease
     }
     return (
         <CartContext.Provider value={value} {...props} />
