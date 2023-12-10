@@ -5,6 +5,7 @@ import Heading from "../general/Heading"
 import Input from "../general/Input"
 import Button from "../general/Button"
 import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
 
 const LoginClient = () => {
   const {
@@ -20,10 +21,11 @@ const LoginClient = () => {
   return (
     <AuthContainer>
       <div className="w-full md:w-[500px] p-3 shadow-lg rounded-md">
-        <Heading text="Login" center />        
+        <Heading text="Login" center />
         <Input placeholder="Email" type="text" id="email" register={register} errors={errors} required />
         <Input placeholder="Password" type="password" id="password" register={register} errors={errors} required />
         <Button text="Sign in" onClick={handleSubmit(onSubmit)} />
+        <div className="text-center my-2 text-small text-red-500">if not registered before <Link className="underline" href="/register">Click here</Link></div>
         <div className="text-center my-2 font-bold text-lg">OR</div>
         <Button text="Sign in with Google" icon={FcGoogle} outline onClick={() => { }} />
       </div>
