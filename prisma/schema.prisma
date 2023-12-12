@@ -13,12 +13,12 @@ model Account {
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? @db.Text
-    access_token      String? @db.Text
+    refresh_token     String? @db.String
+    access_token      String? @db.String
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? @db.Text
+    id_token          String? @db.String
     session_state     String?
 
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -27,10 +27,19 @@ model Account {
 }
 
 model User {
-    id            String    @id @default(auto()) @map("_id") @db.ObjectId
-    name          String?
-    email         String?   @unique
-    emailVerified DateTime?
-    image         String?
-    accounts      Account[]
+    id             String    @id @default(auto()) @map("_id") @db.ObjectId
+    name           String?
+    email          String?   @unique
+    emailVerified  DateTime?
+    image          String?
+    hashadPassword String?
+    createdAt      DateTime  @default(now())
+    updateAt       DateTime  @updatedAt
+    role           Role      @default(USER)
+    accounts       Account[]
+}
+
+enum Role {
+    USER
+    ADMIN
 }
